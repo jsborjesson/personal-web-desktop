@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+	<title>test</title>
+	
+	<style type="text/css">
+		li { 
+			list-style: none;
+		}
+		.menu-top-level {
+			float: left;
+			margin-right: 20px;
+		}
+	
+	</style>
+</head>
+
+<body>
+	
+	<script>
+		"use strict";
+		
+		// Create a dropdown-list
+		function createMenuOption(name) {
+			var top = document.createElement("li"),
+				a = document.createElement("a");
+				
+			top.className = "menu-top-level";
+			a.appendChild(document.createTextNode(name));
+			a.href = "#";
+			top.appendChild(a);
+			
+			return top;
+		}
+		
+		// Create a button in the dropdown
+		function createSubMenuOption(name, fn) {
+			var li = document.createElement("li"),
+				a = document.createElement("a");
+				
+			a.href = "#";
+			li.appendChild(a);
+			
+			a.appendChild(document.createTextNode(name));
+			a.onclick = fn;
+			
+			return li;
+		}
+		
+		// Create a list of options in the dropdown
+		// Options {Array} array of option-objects containing name and fn-values
+		function createSubMenuList(options) {
+			var ul = document.createElement("ul"),
+				option,
+				element;
+			
+			// For all objects in option-array
+			for (var i = 0; i < options.length; i++) {
+				option = options[i];
+				element = createSubMenuOption(option.name, option.fn);
+				ul.appendChild(element);
+			}
+			
+			return ul;
+		}
+		
+		function toggle() {
+			
+			if (this.nextSibling.style.display === "none") {
+				this.nextSibling.style.display = "";
+			} else {
+				this.nextSibling.style.display = "none";
+			}
+		}
+		
+		function add(title, options) {
+			var dropdown = createMenuOption(title),
+				options = createSubMenuList(options);
+			
+			dropdown.appendChild(options);
+			dropdown.firstChild.onclick = toggle;
+			document.body.appendChild(dropdown);
+			
+		}
+		
+		add("File", [{
+			name: "Save",
+			fn: function (e) {
+				console.log("save");
+			}
+		}, {
+			name: "Reload",
+			fn: function (e) {
+				console.log("reload");
+			}
+		
+		}]);
+		
+		add("Options", [{
+			name: "log this",
+			fn: function (e) {
+				console.log(this);
+			}
+		}, {
+			name: "log e",
+			fn: function (e) {
+				console.log(e);
+			}
+		}]);
+	
+	</script>
+		
+
+</body>
+
+

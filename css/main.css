@@ -1,0 +1,271 @@
+/**
+ * Windows
+ */
+
+/* Non-selectable*/
+.window-titlebar,
+.window-footer,
+.window-menu,
+.window-content,
+.launcher {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.window-parent {
+    position: absolute;
+    border-radius: 7px 7px 4px 4px;
+    box-shadow: 0 0 5px black;
+
+}
+
+.window-titlebar {
+    background: #aaa;
+    font-family: "Monaco";
+
+    border-radius: 7px 7px 0 0;
+    padding: 2px 5px 0 5px;
+    height: 25px;
+
+    /*cursor: default;*/
+
+    /* Gradient */
+    background: rgb(153,153,153); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(153,153,153,1) 31%, rgba(170,170,170,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(31%,rgba(153,153,153,1)), color-stop(100%,rgba(170,170,170,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(153,153,153,1) 31%,rgba(170,170,170,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(153,153,153,1) 31%,rgba(170,170,170,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(153,153,153,1) 31%,rgba(170,170,170,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(153,153,153,1) 31%,rgba(170,170,170,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#aaaaaa',GradientType=0 ); /* IE6-9 */
+
+}
+    /* Icon */
+    .window-titlebar .window-icon {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-right: 5px;
+        background-size: 100% 100%;
+    }
+
+    /* Close-button */
+    .window-titlebar .close-button:before {
+        content: "x";
+    }
+    .window-titlebar .close-button {
+        width: 20px;
+        height: 20px;
+        float: right;
+
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 18px;
+        color: #000000;
+        text-shadow: 0 1px 0 #ffffff;
+        opacity: 0.2;
+        filter: alpha(opacity=20);
+        text-decoration: none;
+    }
+        .window-titlebar .close-button:hover {
+            color: #000000;
+            text-decoration: none;
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+            cursor: pointer;
+        }
+
+/* Menu bar*/
+.window-menu {
+    height: 25px;
+
+    /* Gradient */
+    background: rgb(170,170,170); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(170,170,170,1) 0%, rgba(187,187,187,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(170,170,170,1)), color-stop(100%,rgba(187,187,187,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(170,170,170,1) 0%,rgba(187,187,187,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(170,170,170,1) 0%,rgba(187,187,187,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(170,170,170,1) 0%,rgba(187,187,187,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(170,170,170,1) 0%,rgba(187,187,187,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#bbbbbb',GradientType=0 ); /* IE6-9 */
+
+}
+
+.window-menu ul {
+    list-style: none;
+    margin: 0;
+}
+
+.window-menu {
+    font-family: "Monaco";
+    text-transform: capitalize;
+}
+
+.window-top-menu {
+    float: left;
+}
+
+    .window-top-menu > a {
+        color: #666;
+        margin: 0 7px;
+        
+    }
+
+.window-sub-menu {
+    padding: 8px;
+    background: #bbb;
+    position: absolute;
+    top: 52px; /* position directly under */
+
+    border-radius: 0 0 5px 5px;
+}
+
+    .window-sub-menu a {
+        color: #333;
+    }
+
+
+
+
+.window-content {
+    background: #eee;
+    padding: 7px;
+    overflow: scroll;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.window-footer {
+    background: #aaa;
+    border-radius: 0 0 4px 4px;
+    height: 20px;
+    padding: 4px;
+    padding-bottom: 0;
+    overflow-x: hidden;
+}
+    .window-footer .loading-icon {
+        width: 16px;
+        height: 16px;
+        /*background: red;*/
+        background: url(pics/ajax-loader.gif);
+        background-size: 100% 100%;
+        float: left;
+
+        transition-property: opacity;
+        transition-duration: 1s;
+    }
+    .window-footer .status-text {
+        float: left;
+        margin-left: 5px;
+        font-style: italic;
+    }
+
+    .window-footer .resize-button {
+        width: 16px;
+        height: 16px;
+        float: right;
+        background: url(pics/resize.png);
+        background-size: 100% 100%;
+        cursor: se-resize;
+    }
+
+/* ImageViewer */
+.window-content .thumb {
+    background: #ccc;
+    border-radius: 3px;
+    display: inline-block;    
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+    .window-content .thumb img {
+        display: block;
+        margin: auto;
+    }
+
+
+
+/* Launcher */
+.launcher {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    background: #000; /* fallback */
+    background: rgba(0, 0, 0, 0.85);
+    border-top: 5px solid black;    
+}
+
+.launcher-icon {
+    width: 45px;
+    height: 45px;
+    margin-left: 5px;
+    float: left;
+    cursor: pointer;
+}
+    .launcher-icon img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+
+/* Modal popup */
+.darken {
+    /* Cover everything */
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Darken screen */
+    background: black;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+
+    /* Transition */
+    -webkit-transition-property: background;
+    -moz-transition-property: background;
+    -o-transition-property: background;
+    -ms-transition-property: background;
+    transition-property: background;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+    transition-duration: 1s;
+}
+/* The yellow send-button */
+.btn-custom {
+    background-color: hsl(36, 100%, 59%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffd493", endColorstr="#feab2d");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#ffd493), to(#feab2d));
+    background-image: -moz-linear-gradient(top, #ffd493, #feab2d);
+    background-image: -ms-linear-gradient(top, #ffd493, #feab2d);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffd493), color-stop(100%, #feab2d));
+    background-image: -webkit-linear-gradient(top, #ffd493, #feab2d);
+    background-image: -o-linear-gradient(top, #ffd493, #feab2d);
+    background-image: linear-gradient(#ffd493, #feab2d);
+    border-color: #feab2d #feab2d hsl(36, 100%, 54%);
+    color: #333 !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+
